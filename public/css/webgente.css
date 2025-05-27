@@ -1,0 +1,350 @@
+/* Configurações de dark mode devem ser realizadas em webgente-dark.css */ 
+
+/* Página inicial */
+
+@font-face {
+    font-family: 'GothamLight';
+    src: url('../fonts/GothamLight.otf') format('opentype');
+    font-weight: lighter;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GothamBlack';
+    src: url('../fonts/GothamBlack.otf') format('opentype');
+	font-weight: bold;
+    font-style: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body, #map {
+    height: 100vh;
+    position: relative;
+    z-index: -1;
+	font-family: 'GothamLight', sans-serif;
+}
+#navbar {
+	height: 70px;
+	width: 100%;
+	z-index: 1002;
+	position: absolute;
+	background-color: #EFF2F7; 
+	border-bottom: 4px solid #4C9FF7;
+}
+/*
+#menu {
+	top: 16px;
+	z-index: 10;
+	position: absolute;
+}
+*/
+.webgente-logo {
+	margin-top: 10px;
+	margin-left: 50%;
+	-webkit-transform: translate(-50%, 0)
+}
+
+.webgente-greeting-container {
+	margin-left: 60px;
+	margin-top: 13px;
+	background-color: rgba(250, 250, 250, 0.5);
+	border-radius: 5px;
+	padding: 3px;
+	visibility: hidden;
+	height: 24px;
+}
+
+.user-greeting-name {
+	font-weight: 600;
+}
+
+@media print {
+	#map {
+		height: 210mm;
+		width: 297mm;
+		border: 1px solid black;
+	}
+	.leaflet-control-container{
+		visibility: hidden;
+	}
+	#navbar {
+		visibility: hidden;
+	}
+	.webgente-legend-container {
+		margin-bottom: 10px;
+		margin-right: 10px;
+		border: 1px solid #333;
+	}
+	.leaflet-control-scale-line {
+		visibility: visible;
+	}
+}
+
+/* Container do visualizador 360° */
+
+#container-psv {
+    width: 100%;
+    height: 270px;
+}
+
+/* Container da legenda no mapa */
+
+.webgente-legend-container {
+	width: auto;
+	height: auto;
+	margin-bottom: 25px;
+	margin-right: 70px;
+	background-color: #FFFFFF;
+	border-color: rgba(73, 73, 73, 0.377);
+	border-style: solid;
+	border-radius: 10px;
+	max-height: 70vh;
+	overflow-y: auto;
+	pointer-events: all;
+}
+
+.webgente-legend-graphic-container {
+	width: auto;
+	height: auto;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.webgente-legend-layer-title {
+	font-weight: 700;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+/* Elementos do GetFeatureInfo */ 
+.popup-inner-div {
+    width: 270px;
+}
+
+.panel-body {
+	overflow-y: auto;
+	max-height: 200px;
+}
+
+.leaflet-popup-content-wrapper {
+	max-height: 600px;
+	width: 500px;
+	overflow-y: auto;
+	resize: vertical;
+}
+
+table {
+    width:250px;
+	padding: 15px;
+    text-align:left;
+	font-size: 11px;
+    vertical-align:center;
+    border-bottom: 1px solid #ddd;
+    font-family: Tahoma, Geneva, sans-serif;
+}
+td,th {
+    border-bottom: 1px solid #ddd;
+    padding: 2px;
+}
+tr:hover {
+    background-color: #f5f5f5;
+}
+th {
+    background-color: #f5f5f5;
+}
+
+.panoramic-visualizer {
+    overflow:auto;
+    width: 270px; /* Setar mesma width de .popup-inner-div */
+    height:200px;
+    border:none;
+}
+
+.link-table-collapse {
+	color:black;
+	font-weight: bold;
+}
+
+/* Fim dos Elementos do GetFeatureInfo */
+#search {
+  /* tira posição estática do leaflet e os col-* */
+  position: fixed !important;
+  margin: 0 !important;
+  top: 16% !important;
+  left: 50% !important;
+  transform: translate(-50%) !important;
+  transform-origin: top center;
+  /* garante que fique acima do mapa */
+  z-index: 10000 !important;
+  width: 50%;
+}
+.webgente-search-container {
+    /* mantém escondido até disparar a .show via JS */
+    visibility: hidden;
+    pointer-events: auto;           /* antes: visibleFill (não é padrão CSS) */
+    
+    /* layout interno */
+    padding: 2%;
+    background-color: #ffffff;
+    
+    /* limites de tamanho */
+    max-width: 80%;
+    max-height: 95vh;
+    overflow-x: auto;
+    overflow-y: auto;
+    
+    /* borda e canto arredondado */
+    border: 1px solid rgba(73, 73, 73, 0.377);
+    border-radius: 10px;
+}
+#close-search {
+    background-color: transparent;
+    border: none;
+    color: #888; /* cinza discreto */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    z-index: 1000;
+    padding: 0;
+    line-height: 1;
+}
+
+#close-search:hover {
+    color: #000; /* escurece ao passar o mouse */
+}
+
+/* telas médias (tablets) */
+@media (max-width: 991px) {
+  #search {
+    width: 70% !important;
+  }
+}
+
+/* telas pequenas (celulares) */
+@media (max-width: 576px) {
+  #search {
+    width: 80% !important;
+  }
+}
+
+.resizable {
+	resize: both;
+	overflow: auto;
+}
+
+.input-group {
+	padding: 5px 5px 5px 0px;
+}
+
+.webgente-search-form {
+	margin-bottom: 15px;
+}
+.webgente-search-form:hover {
+	background: rgb(216, 216, 216);
+	transition: background-color 0.5s ease;
+}
+
+.webgente-coordinates-container {
+	background-color: rgba(255, 255, 255, 0.5);
+	font-size: 11px;
+	padding-right: 2px;
+	padding-left: 2px;
+	z-index: 1001;
+	pointer-events: all;
+}
+
+.webgente-coordinates-panel {
+	padding-bottom: 5px;
+	padding-right: 2px;
+}
+
+.webgente-search-coordinates:hover {
+	color:#107ea9;
+	scale: 1.3;
+	transition: all 0.2s ease;
+	cursor: pointer;
+}
+
+.webgente-coordinate-input {
+	width: 90px;
+	font-size: 10px;
+	padding: 2px;
+	border-radius: 2px;
+}
+
+/* Alterações no CSS do Leaflet */
+
+.leaflet-top .leaflet-control {
+	margin-top: 80px;
+}
+
+.leaflet-control-zoom {
+	position: relative;
+  	top: 0px;
+}
+
+.leaflet-control-layers-expanded .leaflet-control-layers-list  {
+	overflow-y: auto;
+	overflow-x: clip;
+	max-height: 80vh;
+}
+/*
+.leaflet-control-layers-expanded {
+	top: 54px;
+	left: -16px;
+	height: calc(100vh - 70px);
+	border-radius: 0;
+	min-width: 200px;
+	max-width: 250px;
+}
+*/
+.leaflet-control-layers-list {
+	font-size: 11px;
+}
+
+.leaflet-draw {
+	position: absolute;
+	top: 150px;
+}
+
+@media (max-width: 768px) {
+	.leaflet-control-attribution {
+		display: none;
+	}
+}
+
+@media (min-width: 900px) {
+	.webgente-search-container{
+		max-width: 590px;
+	}	
+}
+@media (min-width: 1280px) {
+	.webgente-search-container{
+		max-width: 970px;
+	}
+}
+@media (min-width: 1366px) {
+	.webgente-search-container{
+		max-width: 1060px;
+	}
+}
+@media (min-width: 1920px) {
+	.webgente-search-container{
+		max-width: 1540px;
+	}
+}
+@media (min-width: 2560px) {
+	.webgente-search-container{
+		max-width: 1980px;
+	}
+}
+
+.leaflet-control-layers-group > label:not(.leaflet-control-layers-group-label) {
+    padding-left: 15px;
+}
