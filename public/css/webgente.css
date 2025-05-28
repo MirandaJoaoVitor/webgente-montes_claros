@@ -30,8 +30,12 @@ html, body, #map {
 	width: 100%;
 	z-index: 1002;
 	position: absolute;
-	background-color: #EFF2F7; 
-	border-bottom: 4px solid #4C9FF7;
+	/*background-color: #EFF2F7; */
+	border-bottom: 4px solid #ffffff;
+	background: linear-gradient(rgba(25, 118, 210, 0.8), rgba(25, 118, 210, 0.4)), url(https://portal.montesclaros.mg.gov.br/upload/montes_claros/files/base/bg-moc.jpg);
+	background-position: center center, center -65px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
 }
 /*
 #menu {
