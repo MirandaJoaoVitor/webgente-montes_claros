@@ -33,6 +33,7 @@
     "node-fetch": "^2.6.1",
     "sanitize": "^2.1.0",
     "sequelize": "^6.4.0",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "yarn": "^1.22.22"
   }
 }
